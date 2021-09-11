@@ -19,15 +19,15 @@
         </div>
         <div>
           <label for="txtQuantity">Cantidad: </label>
-          <input type="text" id="txtQuantity" />
+          <input type="number" id="txtQuantity" />
         </div>
         <div>
           <label for="txtCost">Costo: </label>
-          <input type="text" id="txtCost" />
+          <input type="number" id="txtCost" />
         </div>
         <div>
-          <label for="txtPos">Posicion(opcional): </label>
-          <input type="text" id="txtPos" />
+          <label for="txtPos">Posicion(solo para Insertar): </label>
+          <input type="number" id="txtPos" />
         </div>
         <button type="button" id="btnAdd">Agregar</button>
         <button type="button" id="btnDel">Eliminar</button>
@@ -37,6 +37,8 @@
         <button type="button" id="btnInsert">Insertar</button>
       </form>
     </div>
-    <script src="main.js"></script>
+    <div id="info"></div>
+    <div id="result"></div>
+    <script src="main.js" type="module"></script>
   </body>
 </html>
