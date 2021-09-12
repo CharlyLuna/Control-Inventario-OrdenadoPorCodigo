@@ -25,8 +25,22 @@ export default class Inventory {
     let i;
     let message = "";
     for (i = 0; i < this._products.length; i++) {
-      message += this._products[i].infoHtml();
+      message += `${this._products[i].infoHtml()} Posicion de listado: ${i} `;
     }
     return message;
+  }
+
+  insert(product, position) {
+    if (position && position <= this._products.length && this.add(product)) {
+      let i = this._products.length - 1;
+      let j = i - 1;
+      for (; i >= position; i--, j--) {
+        let value = this._products[i];
+        this._products[i] = this._products[j];
+        this._products[j] = value;
+      }
+      return this._products;
+    }
+    return false;
   }
 }
