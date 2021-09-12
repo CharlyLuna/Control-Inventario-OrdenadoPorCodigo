@@ -34,10 +34,10 @@ export default class Product {
     let inpQuantity = document.getElementById("txtQuantity");
     let inpCost = document.getElementById("txtCost");
 
-    let code = document.getElementById("txtCode").value;
-    let name = document.getElementById("txtName").value;
-    let quantity = document.getElementById("txtQuantity").value;
-    let cost = document.getElementById("txtCost").value;
+    let code = inpCode.value;
+    let name = inpName.value;
+    let quantity = inpQuantity.value;
+    let cost = inpCost.value;
     // deben estar llenos todos los campos para que se puede crear el producto;
     if (code && name && quantity && cost) {
       inpCode.value = "";
