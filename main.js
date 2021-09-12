@@ -8,6 +8,8 @@ class App {
     this._btnAdd.addEventListener("click", this.addProduct);
     this._btnSearch = document.getElementById("btnSearch");
     this._btnSearch.addEventListener("click", this.searchProduct);
+    this._btnList = document.getElementById("btnList");
+    this._btnList.addEventListener("click", this.listProducts);
   }
 
   addProduct = () => {
@@ -20,7 +22,7 @@ class App {
     }
     let added = this._inventory.add(product);
     if (added) {
-      info.innerHTML += product.infoHtml();
+      info.innerHTML += `Producto agregado: ${product.infoHtml()}`;
     } else {
       info.innerHTML +=
         "<h3>Este producto no puede ser agregado porque ya existe ó excede el limite de productos</h3>";
@@ -36,6 +38,11 @@ class App {
     } else {
       info.innerHTML += `<h3>Encontramos: ${search.infoHtml()} <h3>`;
     }
+  };
+
+  listProducts = () => {
+    let info = document.getElementById("info");
+    info.innerHTML += `Listado de productos: ${this._inventory.list()}`;
   };
 }
 new App();

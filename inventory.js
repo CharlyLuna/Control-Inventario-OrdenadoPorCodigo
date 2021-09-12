@@ -20,4 +20,13 @@ export default class Inventory {
     });
     return result;
   }
+
+  list() {
+    let i;
+    let message = "";
+    for (i = 0; i < this._products.length; i++) {
+      message += this._products[i].infoHtml();
+    }
+    return message;
+  }
 }
