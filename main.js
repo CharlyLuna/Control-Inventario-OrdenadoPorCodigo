@@ -12,6 +12,8 @@ class App {
     this._btnList.addEventListener("click", this.listProducts);
     this._btnInsert = document.getElementById("btnInsert");
     this._btnInsert.addEventListener("click", this.insertProduct);
+    this._btnDelete = document.getElementById("btnDel");
+    this._btnDelete.addEventListener("click", this.deleteProduct);
   }
 
   addProduct = () => {
@@ -44,7 +46,7 @@ class App {
 
   listProducts = () => {
     let info = document.getElementById("info");
-    info.innerHTML += `LISTADO DE PRODUCTOS: ${this._inventory.list()}`;
+    info.innerHTML += `<p>LISTADO DE PRODUCTOS: ${this._inventory.list()}<p>`;
   };
 
   insertProduct = () => {
@@ -63,6 +65,17 @@ class App {
       return;
     }
     info.innerHTML += "<h3>Producto insertado</h3>";
+  };
+
+  deleteProduct = () => {
+    let info = document.getElementById("info");
+    let code = document.getElementById("txtCode").value;
+    let deleted = this._inventory.delete(code);
+    if (deleted == null) {
+      info.innerHTML += "<h3>Este codigo de producto no se ha encontrado</h3>";
+      return;
+    }
+    info.innerHTML += `Se elimino: ${deleted} `;
   };
 }
 new App();
