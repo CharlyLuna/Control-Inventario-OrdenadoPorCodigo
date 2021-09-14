@@ -32,6 +32,18 @@ export default class Inventory {
     return message;
   }
 
+  inverseList() {
+    let i = this._products.length - 1;
+    let message = "";
+    let pos = 1;
+    for (; i >= 0; i--, pos++) {
+      message += `${this._products[i].infoHtml()} Posicion de listado: 
+      ${pos}
+      `;
+    }
+    return message;
+  }
+
   insert(product, position) {
     if (position && position <= this._products.length && this.add(product)) {
       let i = this._products.length - 1;
@@ -60,7 +72,7 @@ export default class Inventory {
       this._products[i] = this._products[j];
       this._products[j] = value;
     }
-    return this._products.pop().infoHtml();
+    return this._products.pop();
   }
 
   _productPos(code) {

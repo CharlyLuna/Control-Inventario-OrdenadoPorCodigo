@@ -1,7 +1,7 @@
 export default class Product {
   constructor(code, name, quantity, cost) {
-    this._code = code;
-    this._name = name;
+    this._code = code.toUpperCase();
+    this._name = name.toUpperCase();
     this._quantity = quantity;
     this._cost = cost;
     this._position;
@@ -17,12 +17,12 @@ export default class Product {
   infoHtml() {
     return `
     <div>
-      <p>
+      <h3>
         ${this._code}-${this._name}
-      </p>
+      </h3>
       <p>
-    ${this._quantity} pieza(s) Costo:${this._cost}$ 
-      Valor de mercancia: ${this.getValue()}$
+    ${this._quantity} PIEZA(s) COSTO:${this._cost}$ 
+      VALOR DE MERCANCIA: ${this.getValue()}$
     </p>
     </div>
     `;

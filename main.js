@@ -14,6 +14,8 @@ class App {
     this._btnInsert.addEventListener("click", this.insertProduct);
     this._btnDelete = document.getElementById("btnDel");
     this._btnDelete.addEventListener("click", this.deleteProduct);
+    this._btnListInv = document.getElementById("btnListInv");
+    this._btnListInv.addEventListener("click", this.listInv);
   }
 
   addProduct = () => {
@@ -75,7 +77,12 @@ class App {
       info.innerHTML += "<h3>Este codigo de producto no se ha encontrado</h3>";
       return;
     }
-    info.innerHTML += `Se elimino: ${deleted} `;
+    info.innerHTML += `<h3>Se eliminó: ${deleted.infoHtml()}<h3> `;
+  };
+
+  listInv = () => {
+    let info = document.getElementById("info");
+    info.innerHTML += `<p>LISTADO INVERTIDO DE PRODUCTOS: ${this._inventory.inverseList()}<p>`;
   };
 }
 new App();
