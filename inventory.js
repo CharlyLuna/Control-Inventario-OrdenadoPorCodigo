@@ -25,9 +25,10 @@ export default class Inventory {
     let i;
     let message = "";
     for (i = 0; i < this._products.length; i++) {
-      message += `${this._products[i].infoHtml()} Posicion de listado: 
-      ${i + 1}
-      `;
+      message += `<div>
+      ${this._products[i].getName()} - ${this._products[i].getCode()} 
+      <p>Número de lista: ${i + 1}<p>
+      <div>`;
     }
     return message;
   }
@@ -37,9 +38,10 @@ export default class Inventory {
     let message = "";
     let pos = 1;
     for (; i >= 0; i--, pos++) {
-      message += `${this._products[i].infoHtml()} Posicion de listado: 
-      ${pos}
-      `;
+      message += `<div>
+      ${this._products[i].getName()} - ${this._products[i].getCode()} 
+      <p>Número de lista: ${i + 1}<p>
+      <div>`;
     }
     return message;
   }

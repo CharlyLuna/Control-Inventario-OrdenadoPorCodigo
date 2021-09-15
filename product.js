@@ -7,6 +7,9 @@ export default class Product {
     this._position;
   }
 
+  getName() {
+    return this._name;
+  }
   getCode() {
     return this._code;
   }
