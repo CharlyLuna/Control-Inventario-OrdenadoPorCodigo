@@ -35,8 +35,7 @@ export default class Inventory {
   inverseList() {
     let i = this._products.length - 1;
     let message = "";
-    let pos = 1;
-    for (; i >= 0; i--, pos++) {
+    for (; i >= 0; i--) {
       message += `<div>
       ${this._products[i].getCode()} - ${this._products[i].getName()}   
       <div>`;
