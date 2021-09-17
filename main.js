@@ -23,7 +23,7 @@ class App {
     let product = Product.readForm();
     if (!product) {
       info.innerHTML +=
-        "<h3>ERROR:Todos los campos deben llenarse para agregar el producto</h3>";
+        "<h3>ERROR:Todos los campos deben llenarse para agregar el producto y el código no debe ser negativo</h3>";
       return;
     }
     let added = this._inventory.add(product);
@@ -57,7 +57,7 @@ class App {
     let info = document.getElementById("info");
     if (!product) {
       info.innerHTML +=
-        "<h3>ERROR:Todos los campos deben llenarse para insertar el producto</h3>";
+        "<h3>ERROR:Todos los campos deben llenarse para insertar el producto y el código no debe ser negativo</h3>";
       return;
     }
     let inserted = this._inventory.insert(product, position);

@@ -42,7 +42,7 @@ export default class Product {
     let quantity = inpQuantity.value;
     let cost = inpCost.value;
     // deben estar llenos todos los campos para que se puede crear el producto;
-    if (code && name && quantity && cost) {
+    if (code && name && quantity && cost && Math.sign(code) !== -1) {
       inpCode.value = "";
       inpName.value = "";
       inpQuantity.value = "";

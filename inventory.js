@@ -26,8 +26,7 @@ export default class Inventory {
     let message = "";
     for (i = 0; i < this._products.length; i++) {
       message += `<div>
-      ${this._products[i].getName()} - ${this._products[i].getCode()} 
-      <p>Número de lista: ${i + 1}<p>
+      ${this._products[i].getCode()} - ${this._products[i].getName()}  
       <div>`;
     }
     return message;
@@ -39,8 +38,7 @@ export default class Inventory {
     let pos = 1;
     for (; i >= 0; i--, pos++) {
       message += `<div>
-      ${this._products[i].getName()} - ${this._products[i].getCode()} 
-      <p>Número de lista: ${i + 1}<p>
+      ${this._products[i].getCode()} - ${this._products[i].getName()}   
       <div>`;
     }
     return message;
