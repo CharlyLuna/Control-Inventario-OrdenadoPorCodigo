@@ -10,8 +10,6 @@ class App {
     this._btnSearch.addEventListener("click", this.searchProduct);
     this._btnList = document.getElementById("btnList");
     this._btnList.addEventListener("click", this.listProducts);
-    this._btnInsert = document.getElementById("btnInsert");
-    this._btnInsert.addEventListener("click", this.insertProduct);
     this._btnDelete = document.getElementById("btnDel");
     this._btnDelete.addEventListener("click", this.deleteProduct);
     this._btnListInv = document.getElementById("btnListInv");
@@ -49,24 +47,6 @@ class App {
   listProducts = () => {
     let info = document.getElementById("info");
     info.innerHTML += `<p>LISTADO DE PRODUCTOS: ${this._inventory.list()}<p>`;
-  };
-
-  insertProduct = () => {
-    let product = Product.readForm();
-    let position = document.getElementById("txtPos").value;
-    let info = document.getElementById("info");
-    if (!product) {
-      info.innerHTML +=
-        "<h3>ERROR:Todos los campos deben llenarse para insertar el producto y el código no debe ser negativo</h3>";
-      return;
-    }
-    let inserted = this._inventory.insert(product, position);
-    if (!inserted) {
-      info.innerHTML +=
-        "<h3>Este producto no ha podido ser insertado porque ya existe ó no se puso un valor valido en la posición</h3>";
-      return;
-    }
-    info.innerHTML += "<h3>Producto insertado</h3>";
   };
 
   deleteProduct = () => {
