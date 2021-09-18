@@ -6,6 +6,7 @@ export default class Inventory {
   add(product) {
     if (this.search(product.getCode()) == null && this._products.length <= 20) {
       this._products.push(product);
+      this._order();
       return true;
     }
     return false;
@@ -82,5 +83,16 @@ export default class Inventory {
       }
     });
     return pos;
+  }
+
+  _order() {
+    let pos = this._products.length - 1;
+    for (let i = 0; i < this._products.length; i++) {
+      if (this._products[pos].getCode() < this._products[i].getCode()) {
+        let value = this._products[pos];
+        this._products[pos] = this._products[i];
+        this._products[i] = value;
+      }
+    }
   }
 }

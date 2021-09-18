@@ -1,6 +1,6 @@
 export default class Product {
   constructor(code, name, quantity, cost) {
-    this._code = code.toUpperCase();
+    this._code = code;
     this._name = name.toUpperCase();
     this._quantity = quantity;
     this._cost = cost;
@@ -37,7 +37,7 @@ export default class Product {
     let inpQuantity = document.getElementById("txtQuantity");
     let inpCost = document.getElementById("txtCost");
 
-    let code = inpCode.value;
+    let code = Number(inpCode.value);
     let name = inpName.value;
     let quantity = inpQuantity.value;
     let cost = inpCost.value;
