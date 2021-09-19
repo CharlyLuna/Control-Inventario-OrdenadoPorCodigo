@@ -15,7 +15,7 @@ export default class Inventory {
   search(code) {
     let result = null;
     this._products.forEach((product) => {
-      if (code === product.getCode()) {
+      if (code == product.getCode()) {
         result = product;
       }
     });
@@ -78,7 +78,7 @@ export default class Inventory {
   _productPos(code) {
     let pos;
     this._products.forEach((p, index) => {
-      if (code === p.getCode()) {
+      if (code == p.getCode()) {
         pos = index;
       }
     });
