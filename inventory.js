@@ -24,7 +24,6 @@ export default class Inventory {
       } else if (this._products[i].getCode() > codeNum) {
         stop = true;
       }
-      console.log(this._products[i].getCode());
       i++;
     }
     return result;
@@ -50,20 +49,6 @@ export default class Inventory {
       <div>`;
     }
     return message;
-  }
-
-  insert(product, position) {
-    if (position && position <= this._products.length && this.add(product)) {
-      let i = this._products.length - 1;
-      let j = i - 1;
-      for (; i >= position; i--, j--) {
-        let value = this._products[i];
-        this._products[i] = this._products[j];
-        this._products[j] = value;
-      }
-      return this._products;
-    }
-    return false;
   }
 
   delete(code) {
