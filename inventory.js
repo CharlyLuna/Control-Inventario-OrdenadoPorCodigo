@@ -13,12 +13,20 @@ export default class Inventory {
   }
 
   search(code) {
+    let codeNum = Number(code);
     let result = null;
-    this._products.forEach((product) => {
-      if (code == product.getCode()) {
-        result = product;
+    let i = 0;
+    stop = false;
+    while (i < this._products.length && stop === false) {
+      if (codeNum === this._products[i].getCode()) {
+        result = this._products[i];
+        stop = true;
+      } else if (this._products[i].getCode() > codeNum) {
+        stop = true;
       }
-    });
+      console.log(this._products[i].getCode());
+      i++;
+    }
     return result;
   }
 
