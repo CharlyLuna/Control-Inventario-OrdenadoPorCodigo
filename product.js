@@ -30,26 +30,4 @@ export default class Product {
     </div>
     `;
   }
-
-  static readForm() {
-    let inpCode = document.getElementById("txtCode");
-    let inpName = document.getElementById("txtName");
-    let inpQuantity = document.getElementById("txtQuantity");
-    let inpCost = document.getElementById("txtCost");
-
-    let code = Number(inpCode.value);
-    let name = inpName.value;
-    let quantity = inpQuantity.value;
-    let cost = inpCost.value;
-    // deben estar llenos todos los campos para que se puede crear el producto;
-    if (code && name && quantity && cost && Math.sign(code) !== -1) {
-      inpCode.value = "";
-      inpName.value = "";
-      inpQuantity.value = "";
-      inpCost.value = "";
-      return new Product(code, name, quantity, cost);
-    } else {
-      return false;
-    }
-  }
 }

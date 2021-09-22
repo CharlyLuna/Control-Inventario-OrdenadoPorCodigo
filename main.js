@@ -18,12 +18,27 @@ class App {
 
   addProduct = () => {
     let info = document.getElementById("info");
-    let product = Product.readForm();
-    if (!product) {
+    let inpCode = document.getElementById("txtCode");
+    let inpName = document.getElementById("txtName");
+    let inpQuantity = document.getElementById("txtQuantity");
+    let inpCost = document.getElementById("txtCost");
+
+    let code = Number(inpCode.value);
+    let name = inpName.value;
+    let quantity = inpQuantity.value;
+    let cost = inpCost.value;
+    // deben estar llenos todos los campos para que se puede crear el producto;
+    if (code && name && quantity && cost && Math.sign(code) !== -1) {
+      inpCode.value = "";
+      inpName.value = "";
+      inpQuantity.value = "";
+      inpCost.value = "";
+    } else {
       info.innerHTML +=
         "<h3>ERROR:Todos los campos deben llenarse para agregar el producto y el código no debe ser negativo</h3>";
       return;
     }
+    let product = new Product(code, name, quantity, cost);
     let added = this._inventory.add(product);
     if (added) {
       info.innerHTML += `Producto agregado: ${product.infoHtml()}`;

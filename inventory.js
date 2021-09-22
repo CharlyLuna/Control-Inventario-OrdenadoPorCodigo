@@ -80,7 +80,7 @@ export default class Inventory {
 
   _order() {
     let pos = this._products.length - 1;
-    for (let i = 0; i < this._products.length; i++) {
+    for (let i = 0; i < pos; i++) {
       if (this._products[pos].getCode() < this._products[i].getCode()) {
         let value = this._products[pos];
         this._products[pos] = this._products[i];
